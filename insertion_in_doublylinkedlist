@@ -1,0 +1,83 @@
+class node:
+    def __init__(self,data):
+        self.data=data
+        self.prev=None
+        self.next=None
+class DLL:
+    def __init__(self):
+        self.head=None
+        self.tail=None
+        self.no=0
+    def insertion_at_position(self,data,pos):
+        if pos==1:
+            self.insertion_at_front(data)
+        elif pos>self.no:
+            self.insertion_at_end(data)
+        elif  pos==self.no:
+            self.no+=1
+            newnode=node(data)
+            self.tail.prev.next=newnode
+            newnode.prev=self.tail.prev
+            newnode.next=self.tail
+            self.tail.prev=newnode
+            
+            
+        else:
+            self.no += 1
+            newnode=node(data)
+            count=1
+            temp=self.head
+            while pos!=count:
+                temp=temp.next
+                count+=1
+        
+            newnode.prev=temp.prev
+            temp.prev.next=newnode
+            newnode.next=temp
+    def insertion_at_front(self,data):
+        self.no+=1
+        newnode=node(data)
+        if self.head==None:
+            self.head=newnode
+            self.tail=newnode
+        else:
+            self.head.prev=newnode
+            newnode.next=self.head
+            self.head=newnode
+            
+        
+    def insertion_at_end(self,data):
+        self.no+=1
+        newnode=node(data)
+        if self.head==None:
+            self.head=newnode
+            self.tail=newnode
+        else:
+            self.tail.next=newnode
+            newnode.prev=self.tail
+            self.tail=newnode
+    
+    def inserting_at_sorted(self,data):
+        
+        if self.head.data>data:
+            self.insertion_at_front(data)
+        elif self.tail.data<data:
+              self.insertion_at_end(data)
+              
+        else:
+            counting=1 
+            temp=self.head
+            while temp!=None:
+                
+                if temp.data<data:
+                    temp=temp.next
+                    counting +=1
+                else:
+                    self.insertion_at_position(data,counting)
+                    break
+    def display(self):
+        temp=self.head
+        while temp!=None:
+            print(temp.data,end=" ")
+            temp=temp.next
+        print()
