@@ -1,0 +1,26 @@
+#using array
+pushstack=[]
+popstack=[]
+i=2
+while i==2:
+    print("Enter 1 for push -----2 for pop -----3 for showing QUEUE------- 4 for peek")
+    input_=int(input())
+    if input_==1:
+        print("enter the element to be pushed")
+        data=int(input())
+        pushstack.append(data)
+    elif input_==2:
+        if len(popstack)==0:#pop from popstack untill empty
+            popstack=pushstack[::-1]#copy everything from pushstack
+            pushstack=[]#make pushstack empty to add further
+        popstack.pop()
+    elif input_==3:
+        print(popstack[::-1]+pushstack)
+    else:
+        if len(popstack)!=0:
+            print("top of queue",popstack[0])
+        else:
+            print(pushstack[len(pushstack)-1])
+    print("enter 1 to continue")
+    i=int(input())
+    i+=1
