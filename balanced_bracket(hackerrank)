@@ -1,0 +1,24 @@
+def isBalanced(s):
+    s=list(s)
+    a=[]#stack
+    for i in s:
+        
+        if i=='{' or i=='(' or i=='[':
+            a.append(i)
+        elif len(a)!=0:
+            
+            x=a.pop() 
+            if i=='}' and x=='{':
+                pass
+            
+            elif i==']' and x=='[':
+                pass
+            
+            elif i==')' and x=='(':
+                pass
+            else:
+                return "NO"
+    if len(a)==0:
+        return "YES"
+    else:#if elements are still in stack
+        return "NO"
