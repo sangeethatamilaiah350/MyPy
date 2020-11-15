@@ -1,0 +1,17 @@
+def removeDuplicates(self,head):
+        
+        a=[]
+        temp=head
+        while temp!=None:
+            a.append(temp.data)
+            temp=temp.next
+            
+        a=sorted(list(set(a)))
+        #print(a)
+        first=Node(a[0])
+        temp1=first
+        for i in range(1,len(a)):
+            x=Node(a[i])
+            temp1.next=x
+            temp1=temp1.next
+        return first
