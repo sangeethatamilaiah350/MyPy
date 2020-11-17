@@ -1,0 +1,12 @@
+def jimOrders(orders):
+    #print(orders)
+    z=[]
+    a=dict()
+    for i in range(len(orders)):
+        a[i+1]=sum(orders[i])
+    #print(a)
+    a=sorted(a.items(),key=lambda x:x[1],reverse=False)
+    for i in a:
+        z.append(i[0])
+    #print(z)
+    return z
