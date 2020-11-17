@@ -1,0 +1,45 @@
+def encryption(s):
+    num=len(s)
+    if num==1:
+        return s
+    n=math.sqrt(num)
+    f=int(n+0.5)**2
+    #checking whether the number is perfect square
+    if f==num:
+        row=int(n)
+        col=int(n)
+    else:
+        row=int(n)
+        col=int(n)+1
+        #product of row and column must be greater than length of string
+        if row*col<num:
+            row=max(row,col)
+            col=max(row,col)
+    a=[]
+    k=0
+    for i in range(row):
+        st=""
+        #stops when it reaches end of string
+        if k==num:
+            break
+        for j in range(col):
+            if k==num:#stops if the reaches end while in loop
+                break
+            else:
+                st=st+s[k]
+                k=k+1
+        a.append(st)
+    
+    b=""
+    for i in range(col):
+        ss=""
+        for j in a:
+            if i>=len(j):
+                break
+            else:
+                ss=ss+j[i]
+        b+=ss
+        b+=" "
+    #print(b)
+    return b
+            
