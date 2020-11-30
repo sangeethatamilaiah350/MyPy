@@ -1,0 +1,11 @@
+n=int(input())
+a=dict()
+
+for i in range(n):
+    x=input()
+    if x in a:
+        a[x]=a[x]+1
+    else:
+        a[x]=1
+print(len(a))
+print(*list(a.values()))
