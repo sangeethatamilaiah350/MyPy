@@ -1,0 +1,17 @@
+Given an array of distinct positive numbers, the task is to calculate the minimum 
+number of subsets (or subsequences)from the array such that each subset contains 
+consecutive numbers.
+def fun():
+  t=int(input())
+  for i in range(t):
+      n=int(input())
+      arr=list(map(int,input().split()))
+      arr=sorted(arr,reverse=False)
+      #print(arr)
+      num=1
+      for i in range(1,n):
+          if arr[i]-arr[i-1]==1:
+              pass
+          else:
+              num=num+1
+      print(num)
