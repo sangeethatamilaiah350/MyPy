@@ -1,0 +1,24 @@
+def bi(a,low,high):
+    while high>=low:
+        mid=(low+high)//2
+        if mid==0:
+            if a[mid]>a[mid+1]:
+                return a[mid]
+            else:
+                return a[mid+1]
+        elif mid==len(a)-1:
+            if a[mid]>a[mid-1]:
+                return a[mid]
+            else:
+                return a[mid-1]
+        elif a[mid]>a[mid+1] and a[mid]>a[mid-1]:
+            return a[mid]
+        elif a[mid]>a[mid+1]:
+            return bi(a,low,mid-1)
+        else:
+            return bi(a,mid+1,high)
+a=[4,3,2,1]		    
+low=0
+high=len(a)
+a=bi(a,low,high)
+print(a)
