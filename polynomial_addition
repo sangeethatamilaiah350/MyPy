@@ -1,0 +1,47 @@
+def addPolynomial(poly1, poly2):
+    t1=poly1
+    t2=poly2
+    res=None
+    head=None
+    while t1!=None and t2!=None:
+        #print(t1.power,t2.power)
+        if t1.power>t2.power:
+        
+            new=Node(t1.coef,t1.power)
+            if res==None:
+                
+                res=new
+                head=res
+            else:
+                res.next=new
+                res=new
+                
+            t1=t1.next
+            t2=t2
+        elif t1.power<t2.power:
+           
+            new=Node(t2.coef,t2.power)
+            if res==None:
+                res=new
+                head=res
+            else:
+                res.next=new
+                res=new
+            t2=t2.next
+            t1=t1
+        else:
+        
+            new=Node(t1.coef+t2.coef,t1.power)
+            if res==None:
+                res=new
+                head=res
+            else:
+                res.next=new
+                res=new
+            t1=t1.next
+            t2=t2.next
+    if t1!=None:
+        res.next=t1
+    if t2!=None:
+        res.next=t2
+    return head
