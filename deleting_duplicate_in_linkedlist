@@ -1,0 +1,24 @@
+'''
+class node:
+    def __init__(self):
+        self.data = None
+        self.next = None
+'''
+
+def deleteAllOccurances(head, k):
+    while head.data==k:
+        head=head.next
+    pre=head
+    temp=head.next
+    while temp!=None:
+        if temp.data==k:
+            while temp!=None and temp.data==k:#make sure to put the temp!=0 condition first
+                    temp=temp.next
+            pre.next=temp
+        pre=temp
+        if temp!=None:
+            temp=temp.next
+        else:
+            break
+    
+    return head
