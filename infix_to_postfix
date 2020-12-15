@@ -1,0 +1,43 @@
+def InfixtoPostfix(exp):
+    
+    stack=[]
+    st=""
+    op=['+','-','*','^','/']
+    c=-1
+    def check(a):
+        if a=='-' or a=='+':
+            return 1
+        elif a=='*' or a=='/':
+            return 2
+        elif a=='^':
+            return 3
+        else:
+            return -1
+    
+    for i in exp:
+        #print(stack)
+        if i=='(':
+            stack.append(i)
+            c=c+1
+        elif i==')':
+            k=stack.pop()
+            c=c-1
+            while c!=-1 and k!='(':
+                st+=k
+                k=stack.pop()
+                c=c-1
+        elif i in op:
+            #print(i)
+            while c!=-1 and check(i)<=check(stack[c]):
+                st+=stack.pop()
+                c=c-1
+            
+            stack.append(i)
+            c+=1
+        else:
+            st+=i
+    while c!=-1:
+        st+=stack.pop()
+        c=c-1
+    return st
+            
