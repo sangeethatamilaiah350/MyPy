@@ -1,0 +1,11 @@
+#HASHING
+def has_cycle(head):
+    temp=head
+    s=set()
+    while temp:
+        if temp in s:
+            return 1
+        s.add(temp)
+        temp=temp.next
+        #print(s)
+    return 0
