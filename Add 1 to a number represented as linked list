@@ -1,0 +1,29 @@
+temp=head
+pre=None
+    
+    a=""
+    while temp:
+        a=a+str(temp.data)
+        pre=temp
+        
+        temp=temp.next
+    if pre.data!=9:
+        pre.data=pre.data+1
+        return head
+    else:
+        k=str(eval(a+"+1"))
+        newhead=None
+        temp2=None
+        for i in k:
+            new=Node(i)
+            if newhead==None:
+                
+                newhead=new
+                temp2=new
+            else:
+                temp2.next=new
+                temp2=new
+        head=newhead
+        return head
+            
+    
