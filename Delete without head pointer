@@ -1,0 +1,7 @@
+#copy the data of nearest node to the current node
+#create a temporary variable and assign it to the next of current
+#now join the current ande temporary next
+def deleteNode(curr_node):
+    curr_node.data=curr_node.next.data
+    temp=curr_node.next
+    curr_node.next=temp.next
