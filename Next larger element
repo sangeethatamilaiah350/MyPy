@@ -1,0 +1,31 @@
+def nextLargerElement(arr,n):
+    top=-1
+    stack=[]
+
+    for i in range(n):
+        if top==-1:
+            stack.append(i)
+            stack.append(arr[i])
+            top+=2
+        else:
+            if stack[top]>arr[i]:
+                stack.append(i)
+                stack.append(arr[i])
+                top+=2
+            else:
+                while top!=-1 and stack[top]<arr[i]:
+                    ele=stack.pop()
+                    index=stack.pop()
+                    top-=2
+                    arr[index]=arr[i]
+                stack.append(i)
+                stack.append(arr[i])
+                top+=2
+    
+    while top!=-1:
+        ele=stack.pop()
+        index=stack.pop()
+        arr[index]=-1
+        top-=2
+    #print(arr)      
+    return arr
