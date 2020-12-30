@@ -1,0 +1,25 @@
+queue_1=[]
+queue_2=[]
+
+def push(x):
+    
+    global queue_1
+    global queue_2
+    queue_2.append(x)
+    while len(queue_1)!=0:
+        queue_2.append(queue_1.pop(0))
+        
+    queue_1=queue_2
+    queue_2=[]
+    
+    
+    
+def pop():
+    global queue_1
+    global queue_2
+    if len(queue_1)!=0:
+        return queue_1.pop(0)
+    else:
+        return -1
+    
+    
