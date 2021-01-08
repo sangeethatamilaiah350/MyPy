@@ -1,0 +1,63 @@
+ALGORITHM:
+  FINDING MIDDLE ELEMENT:
+     for finding middle element move one pointer onstep ahead and another two step ahead.by the time the other pointer reaches the end the first pointer reaches the mid
+  DIVIDE:
+     find the middle untill you reach single node
+  MERGING:
+     now merge each of the node according to order(ascending or decending)
+
+
+def mergeSort(head):
+    
+    #finding middle
+    if head==None or head.next==None:
+        return head
+    else:
+        mid=head
+        last=head
+        while last.next!=None and last.next.next!=None:
+            mid=mid.next
+            last=last.next.next
+        
+        s=mid.next
+        mid.next=None   #separating into two sublist
+        #further dividing until single node
+        
+        first=mergeSort(head)
+        sec=mergeSort(s)
+        
+        #creatng a separate merged singlylinkedlist
+        
+        res=LinkedList()
+        
+        while first!=None and sec!=None:
+            
+            if first.data<sec.data:
+                
+                res.append(first.data)
+                first=first.next
+            elif first.data==sec.next:
+                
+                res.append(first.data)
+                first=first.next
+                sec=sec.next
+            else:
+               
+                res.append(sec.data)
+                sec=sec.next
+        
+        while first:
+            
+            res.append(first.data)
+            first=first.next
+        while sec:
+           
+            res.append(sec.data)
+            sec=sec.next
+        
+        return res.head #  caution:::you must return the head not the object of linkedlist ie.not res should return res.head
+
+
+
+
+
