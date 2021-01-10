@@ -1,0 +1,19 @@
+#using two pointer algorithm
+#deleting node without head pointer
+
+
+def deleteMid(head):
+    a=head
+    b=head
+    while b.next!=None:
+        if b.next.next!=None:
+            b=b.next.next
+        else:
+            b=b.next
+        a=a.next
+    if a.next!=None and next!=None:
+        a.data=a.next.data
+        a.next=a.next.next
+    else:
+        head.next=None
+    return head
