@@ -1,0 +1,18 @@
+def rearrange(head):
+    temp=head
+    pre=None
+    while temp.next!=None and temp.next.next!=None:
+        t=temp.next
+        temp.next=temp.next.next
+        t.next=pre
+        pre=t
+        temp=temp.next
+    if temp.next!=None:#if the length is evenwe will end up with alternate node at end
+        last=temp.next
+        last.next=pre
+        temp.next=last
+        return head
+    else:#just joining the reversed list
+        temp.next=pre
+        return head
+    
