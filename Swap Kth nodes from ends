@@ -1,0 +1,58 @@
+def swapkthnode(head,num,k):
+    
+    temp=head
+    pre=None
+    s=None
+    c=1
+    if num<k:
+        return head
+    if k==num: we may encounter a none while checking for previous of last node 
+        t=head
+        
+        while t.next!=None:
+            pre=t
+            t=t.next
+        pre.next=head
+        t.next=head.next
+        head.next=None
+        head=t
+        t=head
+        
+        return head
+            
+    
+    while temp:
+        if c==k:
+            pre=s   
+            first=temp
+        if c==num-k+1:
+            pres=s
+            
+            last=temp
+            
+        s=temp
+        c+=1
+        temp=temp.next
+    
+    if k==1 :
+        last.next=head.next
+        pres.next=head
+        head.next=None
+        head=last
+    elif first.next==last:
+        l=last.next
+        pre.next=last
+        last.next=first
+        first.next=l
+        
+    else :
+        val=first.next
+        lasnext=last.next
+        pre.next=last
+        last.next=val
+        pres.next=first
+        first.next=lasnext
+    
+    
+    return head
+    
