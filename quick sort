@@ -1,0 +1,25 @@
+class Solution:
+    #Function to sort a list using quick sort algorithm.
+    def quickSort(self,arr,low,high):
+        # code here
+        if len(arr)==1:
+            return
+        if low<high:
+            mid=self.partition(arr,low,high)
+            self.quickSort(arr,low,mid-1)
+            self.quickSort(arr,mid+1,high)
+    
+    def partition(self,arr,low,high):
+        # code here
+        pivot=arr[low]
+        s=low
+        e=high
+        while s<e:
+            while s<high and arr[s]<=pivot:#as iam increamenting the s i should also keep an eye on its exceeding limit 
+                s=s+1
+            while arr[e]>pivot:
+                e=e-1
+            if s<e:
+                arr[s],arr[e]=arr[e],arr[s]
+        arr[e],arr[low]=arr[low],arr[e]
+        return e
