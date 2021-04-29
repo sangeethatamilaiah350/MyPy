@@ -1,0 +1,21 @@
+n=int(input())
+for i in range(n):
+    a=list(map (int,input().split()) )
+    
+    A=a[0]
+    B=a[1]
+    C=a[2]
+    N=a[3]-3
+
+    def fun(x,y,z,N):
+        n=x+y+z
+        if N==1:
+            return n
+        else:
+            res=fun(y,z,n,N-1)
+            
+        return res
+        
+    ans=fun(A,B,C,N)
+    print(ans)
+        
