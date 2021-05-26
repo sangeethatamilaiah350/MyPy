@@ -1,0 +1,23 @@
+def insert(self, val):
+       
+        if self.root==None:
+            temp=Node(val)
+            self.root=temp
+            
+        else:
+            temp=self.root
+            temp1=Node(val)
+            
+            while temp:
+                pre=temp
+                if temp.info>val:
+                    temp=temp.left
+                else:
+                    temp=temp.right
+                
+                
+            
+            if pre.info>val:
+                pre.left=temp1
+            else:
+                pre.right=temp1
