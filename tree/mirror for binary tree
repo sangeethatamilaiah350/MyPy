@@ -1,0 +1,22 @@
+class Solution:
+    #Function to convert a binary tree into its mirror tree.
+    def mirror(self,root):
+        def mirr(root):
+            if root==None:
+                return
+            else:
+                mirr(root.left)
+                mirr(root.right)
+                if root.left!=None and root.right!=None:
+                    root.left,root.right=root.right,root.left
+                elif root.left!=None:
+                    temp=root.left
+                    root.right=temp
+                    root.left=None
+                elif root.right!=None:
+                    temp=root.right
+                    root.left=temp
+                    root.right=None
+                else:
+                    return
+        s=mirr(root)
