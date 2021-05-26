@@ -1,0 +1,10 @@
+def height(root):
+    def hei(root):
+        if root==None:
+            return 0
+        else:
+            l=hei(root.left)
+            r=hei(root.right)
+            return max(l,r)+1
+    s=hei(root)
+    return s-1
