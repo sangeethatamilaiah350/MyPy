@@ -1,0 +1,20 @@
+def levelOrder(root):
+    #Write your code here
+    q=[]
+    q.append(root)
+    temp=root
+    while temp:
+        print(temp.info,end=" ")
+        if temp.left!=None and temp.right!=None:
+            q.append(temp.left)
+            q.append(temp.right)
+        elif temp.left!=None:
+            q.append(temp.left)
+        elif temp.right!=None:
+            q.append(temp.right)
+            
+        q.remove(q[0])
+        if len(q)!=0:
+            temp=q[0]
+        else:
+            break
