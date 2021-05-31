@@ -1,0 +1,22 @@
+class Solution:
+	def FirstNonRepeating(self, A):
+		# Code here
+		count=26*[0]
+		queue=[]
+		ans=""
+		for i in A:
+		    #print(count,quei)
+		    flag=0
+		    queue.append(i)
+		    count[ord(i)-97]+=1
+		    while len(queue):
+		        if count[ord(queue[0])-97]==1:
+		            flag=1
+		            ans+=str(queue[0])
+		            break
+		        else:
+		            queue.pop(0)
+		    if flag!=1:
+		        ans+="#"
+		       
+		return ans
