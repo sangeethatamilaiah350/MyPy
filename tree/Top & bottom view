@@ -1,0 +1,39 @@
+def topView(root):
+    d={}
+    def top(root,hd,level):
+        
+        if root==None:
+            return
+        else:
+            if hd not in d:
+                d[hd]=[root,level]
+                #print(d)
+            else:
+                if d[hd][1]>level:
+                    d[hd]=[root,level]
+            top(root.left,hd-1,level+1)
+            top(root.right,hd+1,level+1)
+    top(root,0,0)
+    
+    for i in sorted(d):
+        print(d[i][0],end=" ")
+        
+  def bottomView(root):
+    d={}
+    def bottom(root,hd,level):
+        
+        if root==None:
+            return
+        else:
+            if hd not in d:
+                d[hd]=[root,level]
+                #print(d)
+            else:
+                if d[hd][1]>level:
+                    d[hd]=[root,level]
+             bottom(root.left,hd-1,level+1)
+             bottom(root.right,hd+1,level+1)
+    top(root,0,0)
+    
+    for i in sorted(d):
+        print(d[i][0],end=" ")
