@@ -1,0 +1,45 @@
+def findDist(root,a,b):
+    
+    #return: minimum distance between a and b in a tree with given root
+    #code here
+    def dis(root,val,d):
+        if root:
+            if root.data==val:
+                return d
+            else:
+                left=dis(root.left,val,d+1)
+                right=dis(root.right,val,d+1)
+                return left+right
+        else:
+            return 0
+    def lca(root):
+        if root==None:
+            return
+        else:
+            if root.data==a or root.data==b:
+                return root
+            left=lca(root.left)
+            right=lca(root.right)
+            if left and right:
+                return root
+            if left:
+                return left
+            if right:
+                return right
+        return
+    lca=lca(root)
+    #print(lca.data)
+    
+    if lca.data==a:
+        dis=dis(lca,b,0)
+    elif lca.data==b:
+        dis=dis(lca,a,0)
+    else:
+        #print("going")
+        x=dis(lca,a,0)
+        #print(x,"x")
+        y=dis(lca,b,0)
+        #print(y,"y")
+        dis=x+y
+    return dis
+    
