@@ -1,0 +1,14 @@
+class Solution:
+	def subsetSums(self, arr, N):
+		# code here
+		ans=[]
+		def fun(index,tot):
+		    if index==N:
+		        ans.append(tot)
+		        return
+		    else:
+		        fun(index+1,tot+arr[index])
+		        fun(index+1,tot)
+		fun(0,0)
+		ans.sort()
+		return ans
