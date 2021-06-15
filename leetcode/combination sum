@@ -1,0 +1,22 @@
+class Solution:
+    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+        ans=[]
+        lt=[]
+        N=len(candidates)
+        def fun(index,lt,target):
+            if index==N:
+                if target==0:
+                    ans.append(lt[:])
+                return
+            if target==0:
+                ans.append(lt[:])
+                return
+            
+            if candidates[index]<= int(target) :
+                lt.append(candidates[index])
+                fun(index,lt,target-candidates[index])
+                lt.pop()
+            fun(index+1,lt,target)
+        fun(0,lt,target)
+        return ans
+            
