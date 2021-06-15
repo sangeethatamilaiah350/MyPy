@@ -1,0 +1,35 @@
+class Solution:
+    def rotateRight(self, head: ListNode, k: int) -> ListNode:
+        Len=0
+        #finding length
+        temp=head
+        while temp:
+            Len+=1
+            pre=temp
+            temp=temp.next
+        #print(Len)
+        #finding times use modulo for higher values 
+        if  k==0 or Len==0:
+            return head
+        times=Len-(k%Len)
+        
+        
+        #print(times)
+        #if times is equal to len no need to perform rotation
+        if times==Len:
+            return head
+        #else make a circular ll
+        pre.next=head
+        
+        tem=head
+        count=1
+        while count!=times:
+            tem=tem.next
+            count+=1
+        head=tem.next
+        tem.next=None
+        
+        return head
+            
+        
+        
