@@ -1,0 +1,27 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        print(s)
+        stack=[]
+        top=-1
+        for i in s:
+            if i=="(" or i=="{" or i=="[":
+                top=top+1
+                stack.append(i)
+            else:
+                if top!=-1:
+                    temp=stack.pop()
+                    top=top-1
+                    if i==")" and temp=="(":
+                        continue
+                    elif i=="]" and temp=="[":
+                        continue
+                    elif i=="}" and temp=="{":
+                        continue
+                    else:
+                        return False
+                else:
+                    return False
+        if len(stack)==0:
+            return True
+        return False
+        
