@@ -1,0 +1,19 @@
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        ans=[]
+        Len=len(nums)
+        def fun(l,string):
+            if l==Len:
+                print(string)
+                ans.append(string[:])
+            else:
+                for i in range(l,Len):
+                    string[l],string[i]=string[i],string[l]
+                    fun(l+1,string)
+                    string[l],string[i]=string[i],string[l]
+        ans.sort()
+        fun(0,nums)
+        print(ans,"re")
+        return ans
+                
+        
