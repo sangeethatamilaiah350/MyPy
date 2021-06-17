@@ -1,0 +1,19 @@
+class Solution:
+    def generateParenthesis(self, n: int) -> List[str]:
+        res=[]
+        lt=[]
+        def fun(o,c):
+            if o==c and c==n:
+                res.append(''.join(lt))
+                return
+            if o<n:
+                lt.append('(')
+                fun(o+1,c)
+                lt.pop()
+            if c<o:
+                lt.append(')')
+                fun(o,c+1)
+                lt.pop()
+        fun(0,0)
+        return res
+        
