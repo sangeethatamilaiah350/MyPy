@@ -1,0 +1,12 @@
+def superDigit(n, k):
+    # Write your code here
+    def fun(val):
+        a=sum([int(i) for i in val])
+        #print(type(a))
+        if a>=10:
+        
+            a=fun(str(a))
+        return a
+    prime=fun(str(n))
+    
+    return fun(str(prime)*k)
