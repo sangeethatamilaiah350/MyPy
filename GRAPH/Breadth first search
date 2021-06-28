@@ -1,0 +1,33 @@
+#only the component associated with 0
+
+
+class Solution:
+    
+    #Function to return Breadth First Traversal of given graph.
+    def bfsOfGraph(self, V, adj):
+        # code here
+        a={}
+        for i in range(V):
+            a[i]=adj[i]
+        #print(a)
+        visited=[False for i in range(V)]
+        queue=[]
+        ans=[]
+        def bfs(node):
+            while len(queue):
+                temp=queue.pop(0)
+                if not visited[temp]:
+                    ans.append(temp)
+                    visited[temp]=True
+                    for i in a[temp]:
+                        if not visited[i]:
+                            queue.append(i)
+                    
+                    
+            
+        
+        queue.append(0)
+        bfs(0)
+        
+        return ans
+        
