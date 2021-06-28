@@ -1,0 +1,21 @@
+class Solution:
+    
+    #Function to return a list containing the DFS traversal of the graph.
+    def dfsOfGraph(self, V, adj):
+        # code here
+        ans=[]
+        a={}
+        for  i in range(V):
+            a[i]=adj[i]
+        visited=[False for i in range(V)]
+        def dfs(node):
+            if visited[node]==False:
+                ans.append(node)
+                
+                visited[node]=True
+                for i in a[node]:
+                    if visited[i]==False:
+                        dfs(i)
+        dfs(0)
+        return ans
+            
