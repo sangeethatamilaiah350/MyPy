@@ -1,0 +1,28 @@
+def isCyclic(self, V, adj):
+        # code here
+        a={}
+        for i in range(V):
+            a[i]=adj[i]
+        
+        #print(a)
+        visited=[False for i in range(V)]
+        back=[False for i in range(V)]
+        k=None
+        def cycle(node):
+            nonlocal k
+            visited[node]=True
+            back[node]=True
+            for i in a[node]:
+                if not visited[i]:
+                    k=cycle(i)
+                    back[i]=False
+                else:
+                    if back[i]==True:
+                        k=True
+            back[node]=False
+            return k
+        for i in range(V):
+            if not visited[i]:
+                if cycle(i):
+                    return 1
+        return 0
