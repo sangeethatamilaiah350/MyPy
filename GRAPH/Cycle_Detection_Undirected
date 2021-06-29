@@ -1,0 +1,30 @@
+class Solution:
+    
+    #Function to detect cycle in an undirected graph.
+	def isCycle(self, V, adj):
+	    
+		a={}
+		for i in range(V):
+		    a[i]=adj[i]
+		visited=[False for i in range(V)]
+		queue=[]
+		def cycle():
+		    while len(queue):
+		        temp=queue.pop(0)
+		        visited[temp[0]]=True
+		        for i in a[temp[0]]:
+		            
+		            if visited[i]==True and i!=temp[1]:
+		                return True
+		            if not visited[i]:
+		                queue.append((i,temp[0]))
+		                #visited[i]=True
+		            
+		    
+		
+		
+		for i in range(V):
+		    if not visited[i]:
+		        queue.append((i,-1))
+		        if cycle():
+		            return True
