@@ -1,0 +1,22 @@
+class Solution:
+    
+    #Function to return list containing vertices in Topological order.
+    def topoSort(self, V, adj):
+        # Code here
+        ans=[]
+        a={}
+        for i in range(V):
+            a[i]=adj[i]
+        visited=[False for i in range(V)]
+        def topo(node):
+            visited[node]=True
+            for i in adj[node]:
+                if not visited[i]:
+                    topo(i)
+                    ans.append(i)
+        for i in range(V):
+            if not visited[i]:
+                topo(i)
+                ans.append(i)
+        return ans[::-1]
+            
