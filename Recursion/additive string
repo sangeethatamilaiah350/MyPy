@@ -1,0 +1,29 @@
+def isAdditiveSequence(num):
+    #code here
+    l=len(num)
+    
+    def fun(n1,n2,others):
+        #print(n1,n2,others)
+        
+        if ((n1[0]=='0' and len(n1)>1) or (n2[0]=='0'and len(n2)>1)):
+            return 0
+        sums=str(int(n1)+int(n2))
+        #print("starts",sums,others)
+        if sums==others[::]:
+            return 1
+        elif others.startswith(sums):
+            #("starts",sums,others)
+            return fun(n2,sums,others[len(sums):])
+        else:
+            return 0
+            
+    for i in range(1,l//2 +1):
+        for j in range(1,(l-i)//2 +1):
+            n1=num[:i]
+            n2=num[i:i+j]
+            others=num[i+j:]
+            #print(n1,n2,others,"f")
+            if fun(n1,n2,others):
+                return 1
+    return 0
+            
