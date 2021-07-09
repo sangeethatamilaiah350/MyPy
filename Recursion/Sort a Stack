@@ -1,0 +1,20 @@
+def sorted(s):
+    # Code here
+    def insert(temp):
+        
+        
+        
+        if len(s)==0 or s[len(s)-1]>temp:
+            s.append(temp)
+        else:
+            val=s.pop()
+            insert(temp)
+            s.append(val)
+            
+    def fun():
+        
+        if len(s)!=0:
+            temp=s.pop()
+            fun()
+            insert(temp)
+    fun()
