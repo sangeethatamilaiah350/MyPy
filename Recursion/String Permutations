@@ -1,0 +1,23 @@
+class Solution:
+    def permutation(self,s):
+        s=list(s)
+        ans=[]
+        l=len(s)-1
+        v=None
+        def fun(index):
+            nonlocal v
+            if index==l:
+                
+                v=''.join(s)
+                ans.append(v)
+                
+            else:
+                for i in range(index,l+1):
+                    #print(s,i)
+                    s[index],s[i]=s[i],s[index]
+                    fun(index+1)
+                    s[index],s[i]=s[i],s[index]
+        fun(0)
+        ans.sort()
+        #print(ans)
+        return ans
