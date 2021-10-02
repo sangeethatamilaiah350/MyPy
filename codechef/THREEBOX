@@ -1,0 +1,20 @@
+# cook your dish here
+try:
+    n=int(input())
+    for i in range(n):
+        a=list(map(int,input().split()))
+        #print(a)
+        c=1
+        tot=a[3]
+        for i in range(3):
+        
+            if a[i]<=tot:
+                tot-=a[i]
+            else:
+                c+=1
+                tot=a[3]
+                tot-=a[i]
+        print(c)
+    
+except:
+    pass
