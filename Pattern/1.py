@@ -11,3 +11,18 @@ for i in range(n):
         print(chr(j),end='')
         j-=1
     print()
+    
+    
+    
+A
+AB
+ABC
+ABCD
+ABCDE    
+      
+n=5
+for i in range(n):
+    k=65
+    for j in range(i+1):
+        print(chr(k+j),end='')
+    print()
